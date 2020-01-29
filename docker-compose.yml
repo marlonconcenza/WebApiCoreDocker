@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  webapi.application:
+    image: ${DOCKER_REGISTRY-}webapiapplication
+    build:
+      context: .
+      dockerfile: WebAPI.Application/Dockerfile
+    environment:
+        - CONNSTRING_SQLSERVER=Data Source=sqlserver;Initial Catalog=MyDB;User Id=sa;Password=Mudar@1234;
+    networks:
+        - redelocal
+networks:
+    redelocal:
